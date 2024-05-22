@@ -14,5 +14,6 @@ export const filterSlice = createSlice({
 })
 
 export default filterSlice.reducer;
+export const selectTextFilter = state => state.filter.name;
+export const { search } = filterSlice.actions;
 
-export const {search} = filterSlice.actions;
