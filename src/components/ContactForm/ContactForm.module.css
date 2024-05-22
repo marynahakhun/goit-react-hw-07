@@ -1,0 +1,20 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid black;
+    padding: 30px;
+}
+
+.field {
+    font: inherit;
+    padding: 4px;
+}
+.btn{
+    margin-top: 20px;
+    background-color: plum;
+    color: azure;
+}
+.text{
+ text-align: left;
+}

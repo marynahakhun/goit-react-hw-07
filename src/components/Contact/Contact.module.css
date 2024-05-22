@@ -1,0 +1,25 @@
+.container {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.containerForP{
+    display: flex;
+        flex-direction: column;
+        /* Змінено на колонки */
+        align-items: flex-start;
+        /* Вирівнювання тексту за лівим краєм */
+        gap: 4px;
+        /* Зменшено відступ між елементами */
+}
+.text {
+    margin: 0;
+}
+.btn{
+    background-color: gray;
+    color: azure;
+}

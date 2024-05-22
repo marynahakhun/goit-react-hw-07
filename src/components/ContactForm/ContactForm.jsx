@@ -1,0 +1,54 @@
+import { nanoid } from "nanoid";
+import css from "./ContactForm.module.css"
+import { Field, Form, Formik, ErrorMessage } from "formik"
+import * as Yup from 'yup'
+import { add } from '../../redux/contactsSlice';
+import { useSelector, useDispatch } from "react-redux";
+
+const UserSchema = Yup.object().shape(
+    {
+        name: Yup.string().min(3, "min 3").max(50, "max 50").required("it is required"),
+        number: Yup.number().required("it is required")
+    }
+)
+
+
+export default function ContactForm() {
+        const dispatch = useDispatch();
+
+    const handleSubmit = (values, { resetForm }) => {
+        const { name, number } = values;
+
+        if (!name || !number) {
+            alert('You need to fill each field');
+            return;
+        }
+
+        const newContact = {
+            name,
+            number,
+        };
+
+        dispatch(add(newContact));
+
+        resetForm();
+    };
+    return <Formik initialValues={{
+        name: "",
+        number: "",
+       
+
+    }}
+        validationSchema={UserSchema}
+        onSubmit={handleSubmit}>
+        <Form className={css.form}>
+            <p className={css.text}>Name</p>
+            <Field name="name" type="text" />
+            <ErrorMessage name="name" component="span" />
+            <p className={css.text}>Number</p>
+            <Field className={css.field} name="number" type="number" />
+            <ErrorMessage name="number" component="span" />
+            <button className={css.btn} type="submit">Add Contacts</button>
+        </Form>
+    </Formik>
+}
