@@ -9,7 +9,6 @@ import { selectLoading } from '../../redux/contactsSlice';
 import { fetchContacts } from "../../redux/contactsOps"
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-  console.dir(fetchContacts)
 function App() {
  const isLoading = useSelector(selectLoading);
   const isError = useSelector(selectError);

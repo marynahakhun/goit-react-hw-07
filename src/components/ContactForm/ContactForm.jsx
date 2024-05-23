@@ -24,12 +24,6 @@ export default function ContactForm() {
             return;
         }
 
-        const newContact = {
-            name,
-            number,
-        };
-
-
         resetForm();
     };
     return <Formik initialValues={{
